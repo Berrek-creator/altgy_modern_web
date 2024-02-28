@@ -1,0 +1,28 @@
+#login_form {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding-bottom: 10px;
+    background-color: rgba(0,0,0,0.7);
+    
+}
+
+#login_form div {
+    padding: 10px;
+}
+
+#login_form label {
+    color: white;
+    display: inline-block;
+    width: 130px;
+}
+
+#login_form button {
+    padding: 5px;
+    margin-left: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#login_form button:hover {
+    background-color: lightgray;
+}

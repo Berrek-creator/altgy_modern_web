@@ -1,0 +1,274 @@
+* , *:before, *:after{ 
+  box-sizing:border-box; 
+}
+
+:root {
+  --main-bg-color: rgb(254, 251, 246);
+  --main-bg-2: rgb(229, 223, 205);
+}
+
+html {
+  /* фон мазайка */
+  background: url('./assets/pattern-alpha.png') var(--main-bg-color);
+  
+  
+  /* фон черепаха с высоким уровнем прозрачности, расположенный в правой части и идущий сверху вниз */
+  /* background: repeat-y right url('./assets/turtle-alpha-big.png'); */
+  background-color: var(--main-bg-2);
+}
+
+body {
+  background-color: rgba(255,255,255,0.85);
+}
+
+main {
+  min-height: 600px;
+}
+
+main {
+  background: no-repeat center center url('./assets/turtle-alpha-big.png');/*, var(--main-bg-color);*/
+  background-size: contain;
+}
+
+* {
+  color: black;
+}
+
+.c-container {
+  padding: 10px;
+}
+
+.gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.gallery-container a {
+  text-decoration: none;
+  
+}
+
+
+.gallery-container figure {
+  margin: 10px;
+  text-align: center;
+}
+
+.gallery-container a:hover {
+  background-color: pink;
+}
+
+.gallery-container figcaption {
+  font-size: 1.2em;
+  color: black;
+  background-color: pink;
+  padding: 5px 3px;
+}
+
+
+body {
+  max-width: 1200px;
+  margin: auto;
+}
+
+header {
+  background-color: pink;
+  border-radius: 0 0 10px 10px;
+}
+
+
+#branding {
+  position: relative;
+}
+
+#front-page, aside {
+  display: inline-block;
+}
+
+#front-page {
+  width: 60%;
+  display: inline-block
+}
+
+#front-page section {
+  margin: 10px;
+}
+
+#front-page section:nth-of-type(odd) {
+  text-align: left;
+  width: 60%;
+  margin-right: auto;
+}
+
+#front-page section:nth-of-type(even) {
+  text-align: right;
+  width: 60%;
+  margin-left: auto;
+}
+
+aside {
+  float: right;
+  width: 38%;
+}
+
+.news-card-preview {
+  margin: 10px;
+  border-bottom: 1px solid black;
+  border-radius: 0 0 10px 10px;
+}
+
+.news-card-preview h2, .news-card-preview time, .news-card-preview p {
+  padding: 10px;
+  margin: 0px;
+}
+
+.news-card-preview h2 {
+  background-color: pink;
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+
+.news-card-preview time, .news-card-preview p  {
+  display: block;
+  margin-top: 5px;
+}
+
+
+#branding-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 100%;
+  padding: 20px;
+  background-color: rgba(255,255,255,0.3);
+  color: white;
+  display: flex;
+  justify-items: center;
+}
+
+#branding h1 {
+  font-size: 2em;
+  color: pink;
+  text-shadow: 1px 1px 2px black, 0 0 1px black, 0 0 0.2px black;
+}
+
+#title-wrap, #logo-wrap {
+  display: flex;
+  align-items: center;
+}
+
+
+nav a {
+  display: inline-block;
+  padding: 10px;
+  text-decoration: none;
+  font-size: 1.6em;
+}
+
+nav a:hover {
+  color: white;
+}
+
+.c-fluid-img {
+  width: 100%;
+  height: auto;
+}
+
+.c-max-fluid {
+  display: inline;
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+}
+
+
+footer {
+  border-radius: 10px 10px 0 0;
+  border-top: 2px solid lightpink;
+  width: 100%;
+  background-color: pink;
+  clear: both;
+}
+
+address p {
+  margin: 0px;
+  padding: 10px;
+}
+
+#photo-container {
+  text-align: center;
+  float: left;
+  width: 40%;
+  min-width: 300px;
+}
+
+.italic-center span {
+  display: block;
+}
+
+.italic-center {
+  text-align: center;
+  list-style-type: none;
+  font-style: italic;
+}
+
+figure {
+  margin: 0px;
+}
+
+#valid-css {
+  float: right;
+}
+
+#big-img {
+  width: 100%;
+}
+
+.big-test img {
+  width: 100%;
+}
+
+.big-test {
+  width: 48%;
+  display: inline-block;
+}
+
+.btn-right {
+  display: block;
+  margin: 10px;
+  font-size: 20px;
+  padding: 10px;
+  margin-left: auto;
+}
+
+@media (max-width: 768px) {
+  #front-page section {
+      width: 100% !important;
+      margin: auto;
+      text-align: left !important;
+  }
+}
+
+@media (max-width: 960px) {
+  #front-page {
+      width: auto;
+      display: inline-block
+  }
+
+  #photo-container {
+      float: none;
+      width: 100%;
+  }
+
+  #photo-container img {
+      max-width: 300px;
+      height: auto;
+  }
+  
+  aside {
+      float: none;
+      width: 100%;
+  }
+}

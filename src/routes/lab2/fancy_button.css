@@ -1,0 +1,41 @@
+button.fbtn:hover {
+    filter: brightness(85%);
+    cursor: pointer;
+}
+
+button.fbtn {
+    background-color: lightgray;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+    border: 0px;
+    font-family: inherit;
+}
+
+button.fbtn.btn-primary {
+    background-color: blue;
+}
+
+button.fbtn.btn-secondary {
+    background-color: gray;
+}
+
+button.fbtn.btn-success {
+    background-color: rgb(74, 235, 101);
+}
+
+button.fbtn.btn-danger {
+    background-color: red;
+}
+
+button.fbtn.i {
+    font-style: italic;
+}
+
+button.fbtn.b {
+    font-weight: bold;
+}
+
+button.fbtn.strange {
+    position: relative;
+}
