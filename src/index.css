@@ -118,6 +118,10 @@ aside {
   border-radius: 0 0 10px 10px;
 }
 
+.news-card-preview.active-side-tab {
+  box-shadow: 0px 0px 20px 0px black;
+}
+
 .news-card-preview h2, .news-card-preview time, .news-card-preview p {
   padding: 10px;
   margin: 0px;

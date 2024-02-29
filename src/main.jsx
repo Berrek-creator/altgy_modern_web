@@ -8,6 +8,12 @@ import Lab from './routes/lab.jsx'
 import Lab1 from './routes/lab1/lab1.jsx'
 import Lab2 from './routes/lab2/lab2.jsx'
 
+import Loader from './routes/lab4/loader.jsx'
+
+import App from './App.jsx'
+
+import BodyMain from './components/Body_main.jsx'
+
 
 import {
   createBrowserRouter,
@@ -33,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: 'labs/2',
         element: <Lab2 />
+      },
+      {
+        path: 'labs/3',
+        element: <Loader />
       }
     ]
   },
