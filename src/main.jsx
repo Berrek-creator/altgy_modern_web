@@ -7,8 +7,10 @@ import ErrorPage from './error-page.jsx'
 import Lab from './routes/lab.jsx'
 import Lab1 from './routes/lab1/lab1.jsx'
 import Lab2 from './routes/lab2/lab2.jsx'
+import Lab3 from './routes/lab3/lab3.jsx'
+import Lab4 from './routes/lab4/lab4.jsx'
 
-import Loader from './routes/lab4/loader.jsx'
+
 
 import App from './App.jsx'
 
@@ -42,7 +44,12 @@ const router = createBrowserRouter([
       },
       {
         path: 'labs/3',
-        element: <Loader />
+        element: <Lab3 />
+      },
+      {
+        
+        path: 'labs/4',
+        element: <Lab4 />
       }
     ]
   },

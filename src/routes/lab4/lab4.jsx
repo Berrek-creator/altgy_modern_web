@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-function Loader() {
+function Lab4() {
     
     const [news, setNews] = useState('')
     // Функция для сохранения данных
@@ -15,9 +15,10 @@ function Loader() {
     };
 
     getApiData();
+    
     return (
         <pre>{JSON.stringify( news, null, 2 )}</pre>
     )
 }
 
-export default Loader
+export default Lab4
