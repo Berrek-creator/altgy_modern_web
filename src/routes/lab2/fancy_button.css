@@ -10,29 +10,30 @@ button.fbtn {
     border-radius: 5px;
     border: 0px;
     font-family: inherit;
+    min-width: 40px;
 }
 
-button.fbtn.btn-primary {
+button.fbtn.fbtn-primary {
     background-color: blue;
 }
 
-button.fbtn.btn-secondary {
+button.fbtn.fbtn-secondary {
     background-color: gray;
 }
 
-button.fbtn.btn-success {
+button.fbtn.fbtn-success {
     background-color: rgb(74, 235, 101);
 }
 
-button.fbtn.btn-danger {
+button.fbtn.fbtn-danger {
     background-color: red;
 }
 
-button.fbtn.i {
+button.fbtn.fi {
     font-style: italic;
 }
 
-button.fbtn.b {
+button.fbtn.fb {
     font-weight: bold;
 }
 

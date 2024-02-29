@@ -8,7 +8,7 @@ function FancyButton(props) {
     };
 
     return <button onClick={props.onClick} 
-                    onMouseOver={props.onMouseOver ? props.onMouseOver : props.className.includes("strange") ? do_the_thing : () => {}} 
+                    onMouseOver={props.onMouseOver ? props.onMouseOver : props.className && props.className.includes("strange") ? do_the_thing : () => {}} 
                     className={props.className} 
                     id={props.id} 
                     value={props.value} 

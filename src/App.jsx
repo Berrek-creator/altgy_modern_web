@@ -5,19 +5,22 @@ import './App.css'
 
 import Header_component from './components/Header.jsx'
 import Footer_component from './components/Footer.jsx'
-import Sidebar_component from './components/Sidebar.jsx'
 import BodyMain from './components/Body_main.jsx'
+import Sidebar from './components/Sidebar.jsx'
+import { Outlet } from 'react-router-dom'
+
+
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-        <Header_component></Header_component>      
+        <Header_component></Header_component>  
 
-        <BodyMain></BodyMain>
+        <Outlet></Outlet>    
 
-        <Sidebar_component></Sidebar_component>
+        <Sidebar></Sidebar>      
 
         <Footer_component></Footer_component>
     </>

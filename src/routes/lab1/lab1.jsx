@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './lab1.css';
 
+// это кнопка из второй лабораторной
+import FancyButton from '../lab2/fancy_button';
+
 function lab1() {
   // кнопка и форма в одном месте, ну так уж получилось
   const [count, setCounter] = useState(0) // счетчик
@@ -12,6 +15,10 @@ function lab1() {
 
   function increase_counter() {
     setCounter(count => count + 1)
+  }
+
+  function decrease_counter() {
+    setCounter(count => count - 1)
   }
 
   useEffect(() => {
@@ -51,8 +58,12 @@ function lab1() {
         <div>
             <h1>Лабораторная работа №1</h1>
             <h2>Якимов Борис Борисович</h2>
-            <button id="hello_btn" onClick={increase_counter}>Нажми меня!</button>
-            <p>Нажата раз:<span id="couter">{count}</span></p>
+            
+            <p>Значение счетчика: <span id="couter">{count}</span></p>
+            
+            <FancyButton className='fbtn fbtn-success' onClick={increase_counter}>+1</FancyButton>
+            <FancyButton className='fbtn fbtn-danger' onClick={decrease_counter}>-1</FancyButton>
+            
             <hr></hr>
             <form id="login_form" onSubmit={form_submit}>
               <div>

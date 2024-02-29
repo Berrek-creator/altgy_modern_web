@@ -4,16 +4,6 @@ import ReactDOM from 'react-dom/client'
 import Root from './routes/root.jsx'
 import ErrorPage from './error-page.jsx'
 
-import Lab from './routes/lab.jsx'
-import Lab1 from './routes/lab1/lab1.jsx'
-import Lab2 from './routes/lab2/lab2.jsx'
-import Lab3 from './routes/lab3/lab3.jsx'
-import Lab4 from './routes/lab4/lab4.jsx'
-
-
-
-import App from './App.jsx'
-
 import BodyMain from './components/Body_main.jsx'
 
 
@@ -31,25 +21,8 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: '/',
-        element: <Lab />
-      },
-      {
-        path: 'labs/1',
-        element: <Lab1 />,
-      },
-      {
-        path: 'labs/2',
-        element: <Lab2 />
-      },
-      {
-        path: 'labs/3',
-        element: <Lab3 />
-      },
-      {
-        
-        path: 'labs/4',
-        element: <Lab4 />
+        path: '/labs/:id',
+        element: <BodyMain />
       }
     ]
   },
