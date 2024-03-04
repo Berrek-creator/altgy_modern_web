@@ -29,9 +29,7 @@ function BodyMain() {
     
     return (
         <>
-            <main id="front-page" className="c-container">
-                {importedComponent}
-            </main>
+            {importedComponent}
         </>
     )
 }

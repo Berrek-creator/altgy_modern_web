@@ -5,6 +5,7 @@ import Root from './routes/root.jsx'
 import ErrorPage from './error-page.jsx'
 
 import BodyMain from './components/Body_main.jsx'
+import SingleNews from './routes/lab4/SingleNews.jsx'
 
 
 import {
@@ -22,7 +23,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/labs/:id',
-        element: <BodyMain />
+        element: <BodyMain />,
+      },
+      {
+        path: '/labs/4/news/:id',
+        element: <SingleNews />
       }
     ]
   },
@@ -30,7 +35,7 @@ const router = createBrowserRouter([
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  //<React.StrictMode>
     <RouterProvider router={router} />
-  </React.StrictMode>,
+  //</React.StrictMode>,
 )

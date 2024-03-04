@@ -18,7 +18,9 @@ function App() {
     <>
         <Header_component></Header_component>  
 
-        <Outlet></Outlet>    
+        <main id="front-page" className="c-container">
+          <Outlet></Outlet>    
+        </main>
 
         <Sidebar></Sidebar>      
 

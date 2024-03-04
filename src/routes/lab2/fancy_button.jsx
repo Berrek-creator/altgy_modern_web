@@ -12,7 +12,8 @@ function FancyButton(props) {
                     className={props.className} 
                     id={props.id} 
                     value={props.value} 
-                    type={props.type ? props.type : "button"}>{props.children}</button>
+                    type={props.type ? props.type : "button"}
+                    disabled={props.disabled ? props.disabled : false}>{props.children}</button>
 }
 
 export default FancyButton

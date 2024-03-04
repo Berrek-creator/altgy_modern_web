@@ -1,7 +1,9 @@
-button.fbtn:hover {
+button.fbtn:hover:not(:disabled) {
     filter: brightness(85%);
     cursor: pointer;
 }
+
+
 
 button.fbtn {
     background-color: lightgray;
@@ -39,4 +41,10 @@ button.fbtn.fb {
 
 button.fbtn.strange {
     position: relative;
+}
+
+/* Выключенная кнопочка */
+button.fbtn:disabled {
+    background-color: white;
+    color: lightgray;
 }
