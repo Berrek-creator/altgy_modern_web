@@ -292,3 +292,7 @@ figure {
 .dark button:not(:disabled):hover {
   background-color: gray !important;
 }
+
+.dark #branding-content, .dark #branding-content * {
+  background-color: rgba(255,255,255,0) !important;
+}
