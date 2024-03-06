@@ -1,6 +1,4 @@
-import { Children, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Children, useEffect, useState } from 'react'
 import './App.css'
 
 import Header_component from './components/Header.jsx'
@@ -9,23 +7,35 @@ import BodyMain from './components/Body_main.jsx'
 import Sidebar from './components/Sidebar.jsx'
 import { Outlet } from 'react-router-dom'
 
-
+import { ThemeContext } from './ThemeContext.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
 
+  
+  const [theme, setTheme] = useState("light")
+  
+  function toggleTheme() {
+    theme == 'light' ? setTheme("dark") : setTheme('light')  
+    console.log(theme)
+  }
+
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme])
+  
   return (
-    <>
-        <Header_component></Header_component>  
+      <ThemeContext.Provider value={{theme, toggleTheme}}>
+            <Header_component></Header_component>  
 
-        <main id="front-page" className="c-container">
-          <Outlet></Outlet>    
-        </main>
+            <main id="front-page" className="c-container">
+              <Outlet></Outlet>    
+            </main>
 
-        <Sidebar></Sidebar>      
+            <Sidebar></Sidebar>      
 
-        <Footer_component></Footer_component>
-    </>
+            <Footer_component></Footer_component>
+      </ThemeContext.Provider>
   )
 }
 

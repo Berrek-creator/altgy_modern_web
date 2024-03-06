@@ -3,8 +3,6 @@ button.fbtn:hover:not(:disabled) {
     cursor: pointer;
 }
 
-
-
 button.fbtn {
     background-color: lightgray;
     color: black;
@@ -12,7 +10,7 @@ button.fbtn {
     border-radius: 5px;
     border: 0px;
     font-family: inherit;
-    min-width: 40px;
+    border: 1px solid black;
 }
 
 button.fbtn.fbtn-primary {
@@ -47,4 +45,12 @@ button.fbtn.strange {
 button.fbtn:disabled {
     background-color: white;
     color: lightgray;
+}
+
+.mb-auto {
+    margin-bottom: auto;
+}
+
+.fs-2 {
+    font-size: 2em;
 }
