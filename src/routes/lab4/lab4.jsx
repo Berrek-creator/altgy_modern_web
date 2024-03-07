@@ -1,5 +1,4 @@
-import { key } from 'localforage';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import './news-card.css'
 
@@ -14,38 +13,35 @@ function Lab4() {
     const [news, setNews] = useState([])
 
     const [totalPages, setTotalPages] = useState(0)
-    const [totalPosts, setTotalPosts] = useState(0)
+    //const [totalPosts, setTotalPosts] = useState(0)
 
-    function next_page(e) {
+    function next_page() {
         setPage(page + 1)
     }
 
-    function prev_page(e) {
+    function prev_page() {
         setPage(page - 1)
     }
 
     // Функция для сохранения данных
     useEffect(() => {
-
-        const fetchData = async() => {
-            // список параметров: https://developer.wordpress.org/rest-api/reference/posts/
-            console.log(perPage)
-            fetch(`https://xn--80afw1b6b.xn--p1ai/wp-json/wp/v2/posts?per_page=${perPage}${page > 1 ? '&page=' + page : ''}`,
-            {   
-                Methgod: 'GET'
-            }).then((response) => {
-                setTotalPosts(response.headers.get('X-Wp-Total'))
-                setTotalPages(response.headers.get('X-Wp-Totalpages'))
-                return response.json()
-            }).then((data) => {
-                setNews(data)
-                //console.log(news)
-            }).catch(error => {
-                alert(error)
-            })
-        }
-
-        fetchData()
+        
+        // список параметров: https://developer.wordpress.org/rest-api/reference/posts/
+        console.log(perPage)
+        fetch(`https://xn--80afw1b6b.xn--p1ai/wp-json/wp/v2/posts?per_page=${perPage}${page > 1 ? '&page=' + page : ''}`,
+        {   
+            Methgod: 'GET'
+        }).then((response) => {
+            //setTotalPosts(response.headers.get('X-Wp-Total'))
+            setTotalPages(response.headers.get('X-Wp-Totalpages'))
+            return response.json()
+        }).then((data) => {
+            setNews(data)
+            //console.log(news)
+        }).catch(error => {
+            alert(error)
+        })
+        
     }, [page, perPage])
     
     return (
@@ -58,11 +54,11 @@ function Lab4() {
             <pre>{/*JSON.stringify( news, null, 2 )*/}</pre>
             
             <div className='pagination-container'>
-                <FancyButton className='fbtn' onClick={(e) => setPage(1)}>1</FancyButton>
+                <FancyButton className='fbtn' onClick={() => setPage(1)}>1</FancyButton>
                 <FancyButton className='fbtn' disabled={page == 1 ? true : false} onClick={prev_page}>предыдущая</FancyButton>
                 <p>Страница {page} из {totalPages}</p>
                 <FancyButton className='fbtn' disabled={page == totalPages ? true : false} onClick={next_page}>следующая</FancyButton>
-                <FancyButton className='fbtn' onClick={(e) => setPage(totalPages)}>{totalPages}</FancyButton>
+                <FancyButton className='fbtn' onClick={() => setPage(totalPages)}>{totalPages}</FancyButton>
             </div>
         </div>
     )
