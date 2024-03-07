@@ -1,10 +1,10 @@
-import React from 'react'
+//import React from 'react'
 import ReactDOM from 'react-dom/client'
 
 import Root from './routes/root.jsx'
 import ErrorPage from './error-page.jsx'
 
-import BodyMain from './components/Body_main.jsx'
+import BodyMain from './components/BodyMain.jsx'
 import SingleNews from './routes/lab4/SingleNews.jsx'
 
 

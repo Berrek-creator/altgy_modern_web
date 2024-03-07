@@ -1,13 +1,10 @@
-import { Outlet, useLocation, useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import { useEffect } from 'react';
 
 import { useState } from 'react';
 
 function BodyMain() {
-    
-    // получить url
-    let location = useLocation()
 
     // динамически импортированный компонент
     const [importedComponent, setImportedComponent] = useState()
@@ -19,13 +16,13 @@ function BodyMain() {
     useEffect(() => {
         console.log(url_params.id)
         const importComponent = async () => {
-            const module = await import('../routes/lab' + url_params.id + '/lab' + url_params.id);
+            const module = await import('../routes/lab' + url_params.id + '/Lab' + url_params.id);
             const AnotherComponent = module.default;
             setImportedComponent(<AnotherComponent />);
         };
 
         importComponent();
-    }, [location.pathname]);
+    }, [url_params]);
     
     return (
         <>

@@ -1,7 +1,6 @@
+import './Footer.css';
 
-import './footer.css';
-
-function footer() {
+function Footer() {
     return (
     <footer className="c-container">
     <address>
@@ -14,4 +13,4 @@ function footer() {
     )
 }
 
-export default footer
+export default Footer

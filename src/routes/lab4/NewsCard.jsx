@@ -1,5 +1,5 @@
 
-import { pretty_date } from "../../tools"
+import { pretty_date, c_unescape } from "../../tools"
 
 import {Link } from "react-router-dom";
 
@@ -10,17 +10,17 @@ function NewsCard(props) {
     return (
         <Link to={'news/' + props.id} style={{ textDecoration: 'none' }}>
             <div className="news-card" id={props.id}>
-                <h1>{props.title}</h1>
+                <h1>{c_unescape(props.title)}</h1>
                 <time dateTime={props.date}>{pretty_date(props.date)}</time>
             </div>
         </Link>
     )
 }
 
-NewsCard.PropTypes = {
-    id: PropTypes.number, // the prop can be of any data type
-    title: PropTypes.string, // prop should be a string
-    date: PropTypes.string, // prop should be a number
+NewsCard.propTypes = {
+    id: PropTypes.number,
+    title: PropTypes.string,
+    date: PropTypes.string,
 }
 
 export default NewsCard

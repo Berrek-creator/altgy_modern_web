@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { ThemeContext } from "../../ThemeContext";
 
-import FancyButton from "../lab2/fancy_button";
+import FancyButton from "../lab2/FancyButton";
 
-function ChangeThemeBtn(props) {
+function ChangeThemeBtn() {
     const {theme, toggleTheme} = useContext(ThemeContext)
 
     let d_icon = String.fromCodePoint( theme == 'light' ? '127761' : '127774' )

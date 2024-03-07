@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 
-import './news-card.css'
+import './NewsCard.css'
 
 import NewsCard from './NewsCard';
 
-import FancyButton from '../lab2/fancy_button';
+import FancyButton from '../lab2/FancyButton';
 
 function Lab4() {
 

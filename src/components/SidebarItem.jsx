@@ -1,5 +1,6 @@
 import {Link } from "react-router-dom";
 
+import PropTypes from 'prop-types';
 
 function SidebarItem(props) {
 
@@ -13,6 +14,15 @@ function SidebarItem(props) {
             <p>{props.lab_desc}</p>
         </article>
     )
+}
+
+SidebarItem.propTypes = {
+    id: PropTypes.number,
+    sendDataToParent: PropTypes.func,
+    className: PropTypes.string,
+    lab_link: PropTypes.string,
+    lab_title: PropTypes.string,
+    lab_desc: PropTypes.string
 }
 
 export default SidebarItem

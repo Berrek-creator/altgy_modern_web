@@ -1,4 +1,6 @@
-import './fancy_button.css'
+import './FancyButton.css'
+
+import PropTypes from 'prop-types';
 
 function FancyButton(props) {
 
@@ -14,6 +16,17 @@ function FancyButton(props) {
                     value={props.value} 
                     type={props.type ? props.type : "button"}
                     disabled={props.disabled ? props.disabled : false}>{props.children}</button>
+}
+
+FancyButton.propTypes = {
+    onClick: PropTypes.func,
+    onMouseOver: PropTypes.func,
+    className: PropTypes.string,
+    id: PropTypes.number,
+    value: PropTypes.string,
+    type: PropTypes.string,
+    disabled: PropTypes.bool,
+    children: PropTypes.node
 }
 
 export default FancyButton

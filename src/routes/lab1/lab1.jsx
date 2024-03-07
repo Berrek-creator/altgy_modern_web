@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import './lab1.css';
+import { useState, useEffect } from 'react';
+import './Lab1.css';
 
 // это кнопка из второй лабораторной
-import FancyButton from '../lab2/fancy_button';
+import FancyButton from '../lab2/FancyButton';
 
-function lab1() {
+function Lab1() {
   // кнопка и форма в одном месте, ну так уж получилось
   const [count, setCounter] = useState(0) // счетчик
   
@@ -27,7 +27,7 @@ function lab1() {
       setPassword(sessionStorage.getItem('usr_psw'));
       setRememberMe(true);
     }
-  })
+  }, [])
 
   function form_submit(e) {
     e.preventDefault()
@@ -85,4 +85,4 @@ function lab1() {
     )
   }
 
-export default lab1
+export default Lab1

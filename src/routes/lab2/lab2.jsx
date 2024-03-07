@@ -1,4 +1,4 @@
-import FancyButton from "./fancy_button"
+import FancyButton from "./FancyButton"
 
 function Lab2() {
     return (
