@@ -247,6 +247,17 @@ figure {
   margin-left: auto;
 }
 
+.left-right-panel {
+  display: flex;
+  justify-content: space-between;
+  vertical-align: middle;
+}
+
+.left-right-panel div {
+  display: flex;
+  align-items: center;
+}
+
 @media (max-width: 768px) {
   #front-page section {
       width: 100% !important;
