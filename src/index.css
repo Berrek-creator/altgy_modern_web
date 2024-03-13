@@ -268,7 +268,7 @@ figure {
 
 @media (max-width: 960px) {
   #front-page {
-      width: auto;
+      width: 100%;
       display: inline-block
   }
 
@@ -287,6 +287,79 @@ figure {
       width: 100%;
   }
 }
+
+/******************* форма *********************/
+.c-form {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding-bottom: 10px;
+  background-color: rgba(0,0,0,0.7);
+}
+
+.c-form div {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+}
+
+.c-form label {
+  color: white;
+  display: inline-block;
+  width: 130px;
+  text-align: right;
+  padding-right: 20px;
+}
+
+.c-form button {
+  padding: 10px;
+  margin-left: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.c-form button:hover {
+  background-color: lightgray;
+}
+
+.c-form input {
+  padding: 7px 4px;
+  border-radius: 5px;
+  border: 1px solid white;
+}
+
+.c-form .text-area {
+  display: flex;
+}
+
+.c-form input[type=checkbox] {
+  width: 20px;
+  height: 20px;
+}
+
+
+.c-form .text-area textarea {
+  padding: 5px;
+  border: 1px solid white;
+  border-radius: 5px;
+  min-width: 50%;
+}
+
+.c-form .error {
+  margin-top: 2px;
+  border-radius: 10px;
+  color: red;
+  width: 100%;
+  margin-left: 120px;
+  text-shadow: 1px 1px 10px black, 1px 1px 10px black;
+}
+
+.form-controls {
+  display: flex;
+  justify-content: end;
+}
+
 
 /* Темная тема */
 .dark, .dark * {

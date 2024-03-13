@@ -15,8 +15,12 @@ function BodyMain() {
     // Динамический импорт, привязанный к изменению пути в url
     useEffect(() => {
         console.log(url_params.id)
+        
         const importComponent = async () => {
-            const module = await import('../routes/lab' + url_params.id + '/Lab' + url_params.id);
+            
+            let import_path = '../routes/lab' + url_params.id + '/Lab' + url_params.id
+            
+            const module = await import(import_path);
             const AnotherComponent = module.default;
             setImportedComponent(<AnotherComponent />);
         };

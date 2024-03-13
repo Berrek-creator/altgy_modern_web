@@ -65,7 +65,7 @@ function Lab1() {
             <FancyButton className='fbtn fbtn-danger' onClick={decrease_counter}>-1</FancyButton>
             
             <hr></hr>
-            <form id="login_form" onSubmit={form_submit}>
+            <form id="login_form" className='c-form' onSubmit={form_submit}>
               <div>
                 <label htmlFor="login">Логин: </label>
                 <input type="text" name="login" value={login} onChange={(e) => setLogin(e.target.value)} id="login_field" />
