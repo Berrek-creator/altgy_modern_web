@@ -11,7 +11,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { changeNewsPerPage, changeNewsPage, storePage, setNewsTotalPages } from '../../Redux/Lab4/Lab4Action';
 
 function Lab4() {
-    
+    useSelector(state => {
+        return state.newsPage.newsPage
+    })
     // сколько постов показывать на странице
     const perPage = useSelector(state => state.newsPerPage.newsPerPage)
     // какую страницу просматриваем
