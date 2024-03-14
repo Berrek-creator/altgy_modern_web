@@ -11,6 +11,8 @@ import './FormFields.css'
 
 // https://codesandbox.io/p/sandbox/formik-v2-tutorial-added-textarea-ujz18?file=%2Fsrc%2Findex.js%3A15%2C50
 
+
+// компонент текстовой области
 export const TextArea = ({label, ...props}) => {
     // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
     // which we can spread on <input> and alse replace ErrorMessage entirely.
@@ -28,6 +30,8 @@ export const TextArea = ({label, ...props}) => {
     );
 };
 
+// компонент поля ввода (text, number, checkbox)
+
 export const InputField = ({label, ...props}) => {
     const [field, meta] = useField(props);
     return (
@@ -41,10 +45,12 @@ export const InputField = ({label, ...props}) => {
     )
 }
 
+// компонент поля ввода номера телефона
+// оберта над React-Phone-Input-2 https://www.npmjs.com/package/react-phone-input-2
+// сюда обязательно в props нужно передать formik.handleChange, иначе значение (для formik) не будет обновляться
 export const PhoneField = ({label, ...props}) => {
     const [field, meta] = useField(props)
     return (
-
         <div>
             <label htmlFor={props.id || props.name}>{label}</label>
             <PhoneInput specialLabel="" disableDropdown={true}
@@ -63,8 +69,10 @@ const prop_vals = {
     id: PropTypes.string,
     name: PropTypes.string,
     type: PropTypes.string,
-    label: PropTypes.string
+    label: PropTypes.string,
+    onChange: PropTypes.func
 }
 
 InputField.propTypes = prop_vals
 TextArea.propTypes = prop_vals
+PhoneField.propTypes = prop_vals

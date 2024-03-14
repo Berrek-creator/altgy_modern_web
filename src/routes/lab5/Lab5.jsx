@@ -7,15 +7,21 @@ import { InputField, TextArea, PhoneField } from './FormFields'
 import * as Yup from 'yup'
 
 function Lab5() {
-    const phoneRegExp = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
+    // https://www.regextester.com/99415
+    // регулярное выраженеи для русских номеров телефонов
+    // /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/
+    const phoneRegExp = /^(\+7|7|8)?[\s-]?\(?[489][0-9]{2}\)?[\s-]?[0-9]{3}[\s-]?[0-9]{2}[\s-]?[0-9]{2}$/
 
+    // схема валидации
     const FormSchema = Yup.object().shape({
         user_name: Yup.string().min(2, 'Короткое имя').max(50, 'Длянное имя').required("Введите имя"),
         email: Yup.string().email("Некоректный E-mail").required("Введите email"),
-        phone: Yup.string().required('Некоректный номер телефона'),
+        phone: Yup.string().matches(phoneRegExp, "Некоректный номер телефона"),
         message : Yup.string().min(10).max(400).required("Напишите что-нибудь"),
         pdpa : Yup.bool().oneOf([true], "Нужно Ваше согласие")
     })
+
+    // {({prop1, prop2, prop3}) => ()} - то что в фигурных скобках - деструктуризация!
 
     return (
         <div>
@@ -44,13 +50,13 @@ function Lab5() {
                 validationSchema={FormSchema}
             >
                 {({
-                    values,
-                    errors,
-                    touched,
+                    // values,
+                    // errors,
+                    // touched,
                     handleChange,
-                    handleBlur,
-                    handleSubmit,
-                    isSubmitting,
+                    // handleBlur,
+                    // handleSubmit,
+                    // isSubmitting,
                     /* and other goodies */
                 }) => (
                     <Form className='c-form'>
@@ -58,7 +64,7 @@ function Lab5() {
                             label="Имя"
                             id="user_name"
                             placeholder="Имя"
-                            name = "user_name"
+                            name="user_name"
                             type="text"
                         />
     
@@ -88,7 +94,7 @@ function Lab5() {
                         label="Согласие на обрабоку данных"
                             id = "pdpa"
                             name = "pdpa"
-                            type="checkbox"
+                            type = "checkbox"
                         />
     
                         <div className='form-controls'>
