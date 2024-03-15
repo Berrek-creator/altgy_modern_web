@@ -17,7 +17,7 @@ function Lab5() {
         user_name: Yup.string().min(2, 'Короткое имя').max(50, 'Длянное имя').required("Введите имя"),
         email: Yup.string().email("Некоректный E-mail").required("Введите email"),
         phone: Yup.string().matches(phoneRegExp, "Некоректный номер телефона"),
-        message : Yup.string().min(10).max(400).required("Напишите что-нибудь"),
+        message : Yup.string().min(10, "Слишком короткое сообщение").max(400, "Слишком длинное сообщение").required("Напишите что-нибудь"),
         pdpa : Yup.bool().oneOf([true], "Нужно Ваше согласие")
     })
 
