@@ -16,7 +16,7 @@ const defaultTotalPages = {
     totalPages: 1
 }
 
-const newsPerPageReducer = (state = defaultNewsPerPage, action) => {
+export const newsPerPageReducer = (state = defaultNewsPerPage, action) => {
     if (action.type === 'CHANGE_NEWS_PER_PAGE') {
         return {
             ...state,
@@ -26,7 +26,7 @@ const newsPerPageReducer = (state = defaultNewsPerPage, action) => {
     return state
 }
 
-const newsPageReducer = (state = defaultPage, action) => {
+export const newsPageReducer = (state = defaultPage, action) => {
     switch (action.type) {
         case "CHANGE_NEWS_PAGE":
             return {
@@ -50,7 +50,7 @@ const newsPageReducer = (state = defaultPage, action) => {
 
 
 // https://stackoverflow.com/questions/45643453/adding-a-key-value-to-a-dictionary-in-redux
-const pagesLoadedReducer = (state = defaultLoadedPages, action) => {
+export const pagesLoadedReducer = (state = defaultLoadedPages, action) => {
     switch (action.type) {
         case "STORE_PAGE":
             return {
@@ -69,7 +69,7 @@ const pagesLoadedReducer = (state = defaultLoadedPages, action) => {
     }
 }
 
-const totalPagesReducer = (state = defaultTotalPages, action) => {
+export const totalPagesReducer = (state = defaultTotalPages, action) => {
     switch (action.type) {
         case "SET_NEWS_TOTAL_PAGES":
             return {
@@ -81,12 +81,14 @@ const totalPagesReducer = (state = defaultTotalPages, action) => {
     }
 }
 
-// эта штуковина каким-то образом еще и как пространство имен себя ведет
-const newsReduser = combineReducers({
-    newsPerPage: newsPerPageReducer,
-    newsPage: newsPageReducer,
-    newsLoader: pagesLoadedReducer,
-    newsTotalPages: totalPagesReducer
-})
+// Данный блок здесь больше не нужет. Эти теперь занимается хранилище
 
-export default newsReduser;
+// эта штуковина каким-то образом еще и как пространство имен себя ведет
+//const newsReduser = combineReducers({
+//    newsPerPage: newsPerPageReducer,
+//    newsPage: newsPageReducer,
+//    newsLoader: pagesLoadedReducer,
+//    newsTotalPages: totalPagesReducer
+//})
+//
+//export default newsReduser;

@@ -1,0 +1,13 @@
+#single-news {
+    background-color: rgba(255,255,255,0.8);
+}
+
+#single-news div[id^="attachment_"], #single-news div[id^="attachment_"] img {
+    width: 100% !important;
+    height: auto !important;
+}
+
+.wp-caption-text {
+    text-align: center;
+    font-weight: bold;
+}

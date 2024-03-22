@@ -1,16 +1,20 @@
 import { useEffect, useState } from 'react';
 
-import './NewsCard.css'
+import DraftCard from './DraftCard';
 
-import NewsCard from './NewsCard';
+import './DraftCard.css'
 
 // кнопочка
 import FancyButton from '../lab2/FancyButton';
 
 import { useSelector, useDispatch } from 'react-redux';
+
+import GoBackBtn from '../../components/GoBackBtn';
+
 import { changeNewsPerPage, changeNewsPage, storePage, setNewsTotalPages } from '../../Redux/Lab4/Lab4Action';
 
 function Lab4() {
+
     useSelector(state => {
         return state.newsPage.newsPage
     })
@@ -44,6 +48,8 @@ function Lab4() {
         dispatch(changeNewsPage(page_val))
     }
 
+    const bearerToken = useSelector(store => store.auth.bearerToken)
+
     // Функция для сохранения данных
     useEffect(() => {
         console.log(loadedPages)
@@ -57,10 +63,15 @@ function Lab4() {
             setNews(loadedPages[page])
         } else {
             // список параметров: https://developer.wordpress.org/rest-api/reference/posts/
-            //console.log(perPage)
-            fetch(`https://xn--80afw1b6b.xn--p1ai/wp-json/wp/v2/posts?per_page=${perPage}${page > 1 ? '&page=' + page : ''}`,
+            console.log(bearerToken)
+            fetch(`https://xn--80afw1b6b.xn--p1ai/wp-json/wp/v2/posts?status=draft&per_page=${perPage}${page > 1 ? '&page=' + page : ''}`,
             {   
-                Methgod: 'GET'
+                Methgod: 'GET',
+                mode: "cors",
+                headers: {
+                    "Content-type" : "application/json",
+                    "Authorization" : 'Bearer ' + bearerToken
+                },
             }).then((response) => {
                 // можно получить общее число постов
                 //setTotalPosts(response.headers.get('X-Wp-Total'))
@@ -86,6 +97,7 @@ function Lab4() {
 
     return (
         <div id='news-cards-container'>
+            <GoBackBtn></GoBackBtn>
             <div className='left-right-panel'>
                 <div>
                     <label htmlFor="records_per_page_input">Записей на странице: </label>
@@ -96,7 +108,7 @@ function Lab4() {
                 </div>
             </div>
             {news.length ? news.map(item => (
-                <NewsCard to='news/' title={item.title.rendered} date={item.date} key={item.id} id={item.id} content={item.content.rendered}>HAHA</NewsCard>
+                <DraftCard to="" title={item.title.rendered} date={item.date} key={item.id} id={item.id} content={item.content.rendered}>HAHA</DraftCard>
             )) : <p>Новостей нет</p>}
             <pre>{/*JSON.stringify( news, null, 2 )*/}</pre>
             

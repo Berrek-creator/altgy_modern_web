@@ -1,0 +1,13 @@
+#drafts-menu a {
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    margin: 5px 0px;
+    border: 1px solid black;
+    background-color: pink;
+}
+
+#drafts-menu a:hover {
+    background-color: lightcoral;
+    color: white;
+}

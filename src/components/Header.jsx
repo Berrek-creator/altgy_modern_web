@@ -9,31 +9,37 @@ import { Link } from "react-router-dom"
 
 import ChangeThemeBtn from "../routes/lab4/ChangeThemeBtn"
 
-function header() {
-    return(
-        <>
-    <header>
-    <div id="branding">
-        <div id="branding-content">
-            <div id="logo-wrap">
-                <Link to='/'>
-                    <img className='c-max-fluid' src={logo} width='300' height='300' alt='logo' />
-                </Link>
-            </div>
-            <section id="title-wrap">
-                <h1> 
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </h1>
-            </section>
-            <ChangeThemeBtn></ChangeThemeBtn>
-        </div>
-        <img className="c-fluid-img" width="1200" height="552" src={header_image} alt="branding" />
-    </div>
+import LogInOutBtn from "./LogInOutBtn"
 
-    <Navbar/>
-    </header>
+
+function Header() {
+    return(
+    <>
+        <header>
+        <div id="branding">
+            <div id="branding-content">
+                <div id="logo-wrap">
+                    <Link to='/'>
+                        <img className='c-max-fluid' src={logo} width='300' height='300' alt='logo' />
+                    </Link>
+                </div>
+                <section id="title-wrap">
+                    <h1> 
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </h1>
+                </section>
+                <div>
+                    <ChangeThemeBtn></ChangeThemeBtn>
+                    <LogInOutBtn></LogInOutBtn>
+                </div>
+            </div>
+            <img className="c-fluid-img" width="1200" height="552" src={header_image} alt="branding" />
+        </div>
+
+        <Navbar/>
+        </header>
     </>
     )
 }
 
-export default header
+export default Header
