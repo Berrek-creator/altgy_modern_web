@@ -20,6 +20,7 @@ function Sidebar() {
             <SidebarItem sendDataToParent={handleDataFromChild} id={3} className={activeItem == 3 && location.pathname.includes('labs') ? 'active-side-tab' : ''} lab_link='/labs/3' lab_title="Лабораторная работа №3" lab_desc = "шапка, панель, подвал, main"/>
             <SidebarItem sendDataToParent={handleDataFromChild} id={4} className={activeItem == 4 && location.pathname.includes('labs') ? 'active-side-tab' : ''} lab_link='/labs/4' lab_title="Лабораторная работа №4" lab_desc = "Маршруты, useState/Effect, Redux"/>
             <SidebarItem sendDataToParent={handleDataFromChild} id={5} className={activeItem == 5 && location.pathname.includes('labs') ? 'active-side-tab' : ''} lab_link='/labs/5' lab_title="Лабораторная работа №5" lab_desc = "Formik"/>
+            <SidebarItem sendDataToParent={handleDataFromChild} id={6} className={activeItem == 6 && location.pathname.includes('labs') ? 'active-side-tab' : ''} lab_link='/labs/6' lab_title="Лабораторная работа №6" lab_desc = "REST"/>
         </section>
     </aside>
     )

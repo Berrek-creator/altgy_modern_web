@@ -1,6 +1,6 @@
 import { Formik, Form } from 'formik'
 
-import { InputField, TextArea, PhoneField } from './FormFields'
+import { InputField, TextArea, PhoneField } from '../../components/FormFields'
 // Field, ErrorMessage
 
 // валидация при помощи схемы
