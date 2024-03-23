@@ -7,11 +7,13 @@
     font-size: 1em;
 }
 
-.news-card h1 {
-    font-size: 1.2em;
+.draft-card h1 {
+    color: black;
+    font-size: 1.5em;
+    padding: 5px;
 }
 
-.news-card {
+.draft-card {
     border: 1px solid lightgray;
     padding: 10px;
     margin: 10px;
@@ -20,14 +22,9 @@
     min-height: 130px;
 }
 
-.news-card:hover {
+.draft-card .draft-card-preview:hover {
     cursor: pointer;
-    box-shadow: 0px 0px 20px 0px black;
+    background-color: lightgray;
+    border-radius: 2px;
     filter: brightness(95%);
-    margin-left: 5px;
-}
-
-.edit-link {
-    display: block;
-    text-align: right;
 }

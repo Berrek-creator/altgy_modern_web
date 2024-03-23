@@ -8,15 +8,16 @@ import PropTypes from 'prop-types';
 function DraftCard(props) {
 
     return (
-        <div className="news-card" id={props.id}>
+        <div className="draft-card" id={props.id}>
             <Link to={'./' + props.id} style={{ textDecoration: 'none' }}>
-                <h1>{c_unescape(props.title)}</h1>
+                <div className="draft-card-preview">
+                    <h1>{c_unescape(props.title)}</h1>
+                    <time dateTime={props.date}>{pretty_date(props.date)}</time>
+                </div>
             </Link>
-            
-            <time dateTime={props.date}>{pretty_date(props.date)}</time>
-            
-            <div>
-                <Link className='edit-link' to={'./create/' + props.id} state= {{data : props}} >Edit</Link>
+            <hr></hr>
+            <div className='btn-container'>
+                <Link className='c-btn' to={'./create/' + props.id} state= {{data : props}} >Редактировать</Link>
             </div>
         </div>
     )

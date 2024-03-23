@@ -70,7 +70,7 @@ export function Auth() {
                 console.log(data)
 
                 dispatch(setBearerToken(data.token))
-                alert("Добро пожаловать: ", data.user_display_name)
+                alert("Добро пожаловать: " + data.user_display_name)
                 helpers.resetForm()
 
                 navigate('/')

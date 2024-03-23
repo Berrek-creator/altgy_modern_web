@@ -287,6 +287,27 @@ figure {
       width: 100%;
   }
 }
+/******************* кнопка ********************/
+.btn-container {
+  display: flex;
+  justify-content: end;
+}
+
+.c-btn {
+  background-color: lightgray;
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+  border: 0px;
+  font-family: inherit;
+  border: 1px solid black;
+  text-decoration: none;
+}
+
+.c-btn:hover {
+  filter: brightness(85%);
+  cursor: pointer;
+}
 
 /******************* форма *********************/
 .c-form {
@@ -301,7 +322,6 @@ figure {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-
 }
 
 .c-form label {
@@ -316,10 +336,13 @@ figure {
   padding: 10px;
   margin-left: 10px;
   border-radius: 5px;
+}
+
+.c-form button:enabled {
   cursor: pointer;
 }
 
-.c-form button:hover {
+.c-form button:hover:enabled {
   background-color: lightgray;
 }
 
@@ -336,6 +359,15 @@ figure {
 .c-form input[type=checkbox] {
   width: 20px;
   height: 20px;
+}
+
+.c-danger:enabled {
+  background-color: darkred;
+  color: white;
+}
+
+.c-danger:hover:enabled {
+  background-color: red !important;
 }
 
 

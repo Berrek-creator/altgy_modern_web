@@ -5,19 +5,18 @@ import * as Yup from 'yup'
 
 import { InputField, TextArea } from '../../components/FormFields'
 
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
 
 import { useEffect, useState } from "react"
 import GoBackBtn from '../../components/GoBackBtn';
-//import { useNavigate } from 'react-router-dom';
 
-function CreateEditPost(props) {
+function CreateEditPost() {
     const location = useLocation()
+    const navigate = useNavigate()
 
     console.log("passed", location.state)
-    //let navigate = useNavigate()
 
     const bearerToken = useSelector(store => store.auth.bearerToken)
 
@@ -27,18 +26,22 @@ function CreateEditPost(props) {
         content: Yup.string().min(5, 'Мало контента').required("Введите контент записи"),
     })
 
-    useEffect(() => {
-        //// мы не авторизованы, то нужно авторизоваться
-        //is_bearer_valid(bearerToken).then((is_valid) => {
-        //    if (!is_valid){
-        //        navigate('/auth')
-        //    }
-        //})
-    }, [bearerToken])
-
     const [id, setId] = useState(location.state?.data?.id)
+
+
     const [method, setMethod] = useState('POST')
 
+    // чтобы useEffect заставить шевелиться после удаления записи
+    const [deleted, setDeleted] = useState(false)
+
+    useEffect(() => {
+        if (deleted) {
+            navigate(-1)
+        }
+    }, [id, deleted, bearerToken, location])
+
+
+    // создать черновик. Также отвечает за его редактирвоание
     function create_draft(values, helpers) {
         
         let path = "https://xn--80afw1b6b.xn--p1ai/wp-json/wp/v2/posts/"
@@ -63,6 +66,35 @@ function CreateEditPost(props) {
             return response.json()
         }).then((data) => {
             console.log(data)
+            if (data.id) {
+                alert("Черновик сохранен")
+                setId(data.id)
+            }
+        })
+    }
+
+    function delete_draft(values, helpers) {
+        if (!id) {
+            return false
+        }
+
+        let path = "https://xn--80afw1b6b.xn--p1ai/wp-json/wp/v2/posts/" + id
+
+        fetch(path, {
+            method: "DELETE",
+            mode: "cors",
+            headers: {
+                "Content-type" : "application/json",
+                "Authorization" : 'Bearer ' + bearerToken
+            }
+        }).then((response) => {
+            return response.json()
+        }).then((data) => {
+            console.log(data)
+            if (data.id) {
+                alert("Черновик удален")
+                setDeleted(true)
+            }
         })
     }
 
@@ -72,8 +104,8 @@ function CreateEditPost(props) {
             <h1>{id ? "Редактирование" : "Создание"} черновика</h1>
             <Formik
                 initialValues={{
-                    title: location.state?.data?.title,
-                    content: location.state?.data?.content,
+                    title: id ? location.state?.data?.title : '',
+                    content: id ? location.state?.data?.content : '',
                     status: "draft"
                 }}
                 onSubmit={create_draft}
@@ -90,6 +122,7 @@ function CreateEditPost(props) {
                     />
                     
                     <TextArea 
+                        id="content"
                         label="Контент"
                         name="content"
                         rows="10"
@@ -97,8 +130,9 @@ function CreateEditPost(props) {
                     />
 
                     <div className='form-controls'>
-                        <button type="submit">Отправить</button>
+                        <button type="submit">{id ? "Сохранить" : "Отправить"}</button>
                         <button type="reset">Очистить</button>
+                        {id ? <button type="button" className='c-danger' disabled={id ? false : true} onClick={delete_draft} >Удалить</button> : ''}
                     </div>
                 </Form>
             </Formik>

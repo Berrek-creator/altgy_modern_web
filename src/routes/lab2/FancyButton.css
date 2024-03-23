@@ -23,6 +23,7 @@ button.fbtn.fbtn-secondary {
 
 button.fbtn.fbtn-success {
     background-color: rgb(74, 235, 101);
+    color: white;
 }
 
 button.fbtn.fbtn-danger {

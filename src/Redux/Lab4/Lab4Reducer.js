@@ -1,5 +1,10 @@
 import { combineReducers } from "redux"
 
+// для каждой пагинации свое состояние
+const defaultPagers = {
+    pagers : {}
+}
+
 const defaultNewsPerPage = {
     newsPerPage: 4
 }
@@ -43,6 +48,11 @@ export const newsPageReducer = (state = defaultPage, action) => {
                 ...state,
                 newsPage: state.newsPage - 1
             }
+        case "RESET_PAGE":
+            return {
+                ...state,
+                newsPage: 1
+            }
         default:
             return state
     }
@@ -81,7 +91,7 @@ export const totalPagesReducer = (state = defaultTotalPages, action) => {
     }
 }
 
-// Данный блок здесь больше не нужет. Эти теперь занимается хранилище
+// Данный блок здесь больше не нужет. Этим теперь занимается хранилище
 
 // эта штуковина каким-то образом еще и как пространство имен себя ведет
 //const newsReduser = combineReducers({
