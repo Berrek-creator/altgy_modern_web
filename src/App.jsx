@@ -15,11 +15,14 @@ function App() {
       <>
         <Header_component></Header_component>  
 
-        <main id="front-page" className="c-container">
-          <Outlet></Outlet>    
-        </main>
+        <div id='main-wrap'>
+          <main id="front-page" className="c-container">
+            <Outlet></Outlet>    
+          </main>
 
-        <Sidebar></Sidebar>      
+          <Sidebar></Sidebar>      
+        </div>
+        
 
         <Footer_component></Footer_component>
       </>

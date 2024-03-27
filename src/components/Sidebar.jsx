@@ -1,8 +1,10 @@
 import { useLocation } from "react-router-dom";
 import SidebarItem from "./SidebarItem";
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 
 import FancyButton from "../routes/lab2/FancyButton";
+
+import { ThemeContext } from "../ThemeContext";
 
 import { FaWindowClose } from "react-icons/fa";
 
@@ -18,12 +20,7 @@ function Sidebar() {
         "REST CRUD"
     ]
 
-    const [is_open, setIsOpen] = useState(true)
-
-    function toggleSidebar() {
-        console.log("CLICK!")
-        setIsOpen(is_open ? false : true)
-    }
+    const [is_open, toggleSidebar] = useContext(ThemeContext).sidebar
     
     let location = useLocation();
     const [activeItem, setActiveItem] = useState(0)
@@ -33,8 +30,8 @@ function Sidebar() {
     }
 
     return (
-    <aside id="sidebar-right" >
-        <section id="last-news" className={'c-container ' + (is_open ? '' : 'collapsed')}>
+    <aside id="sidebar-right" className={'c-container ' + (is_open ? 'n-collapsed' : 'collapsed')}>
+        <section id="last-news" >
             <h3>Лабораторные работы</h3>
             {labs.map((desc, i) => {
                 let n = i + 1;
