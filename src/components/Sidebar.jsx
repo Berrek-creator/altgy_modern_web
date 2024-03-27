@@ -2,6 +2,10 @@ import { useLocation } from "react-router-dom";
 import SidebarItem from "./SidebarItem";
 import { useState } from 'react';
 
+import FancyButton from "../routes/lab2/FancyButton";
+
+import { FaWindowClose } from "react-icons/fa";
+
 function Sidebar() {
 
     // названия лабораторных работ в хронологическом порядке
@@ -13,6 +17,13 @@ function Sidebar() {
         "Formik",
         "REST CRUD"
     ]
+
+    const [is_open, setIsOpen] = useState(true)
+
+    function toggleSidebar() {
+        console.log("CLICK!")
+        setIsOpen(is_open ? false : true)
+    }
     
     let location = useLocation();
     const [activeItem, setActiveItem] = useState(0)
@@ -22,8 +33,8 @@ function Sidebar() {
     }
 
     return (
-    <aside id="sidebar-right">
-        <section id="last-news" className="c-container {}">
+    <aside id="sidebar-right" >
+        <section id="last-news" className={'c-container ' + (is_open ? '' : 'collapsed')}>
             <h3>Лабораторные работы</h3>
             {labs.map((desc, i) => {
                 let n = i + 1;

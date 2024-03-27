@@ -7,32 +7,22 @@ import Footer_component from './components/Footer.jsx'
 import Sidebar from './components/Sidebar.jsx'
 import { Outlet } from 'react-router-dom'
 
-import { ThemeContext } from './ThemeContext.jsx'
+
 
 function App() {
-  const [theme, setTheme] = useState("light")
-  
-  function toggleTheme() {
-    theme == 'light' ? setTheme("dark") : setTheme('light')  
-    console.log(theme)
-  }
-
-  useEffect(() => {
-    document.documentElement.className = theme;
-  }, [theme])
   
   return (
-      <ThemeContext.Provider value={{theme, toggleTheme}}>
-            <Header_component></Header_component>  
+      <>
+        <Header_component></Header_component>  
 
-            <main id="front-page" className="c-container">
-              <Outlet></Outlet>    
-            </main>
+        <main id="front-page" className="c-container">
+          <Outlet></Outlet>    
+        </main>
 
-            <Sidebar></Sidebar>      
+        <Sidebar></Sidebar>      
 
-            <Footer_component></Footer_component>
-      </ThemeContext.Provider>
+        <Footer_component></Footer_component>
+      </>
   )
 }
 

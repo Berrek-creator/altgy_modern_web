@@ -25,6 +25,7 @@ import {
 
 import './index.css'
 import { useEffect } from 'react'
+import About from './pages/about.jsx'
 
 // В данный компонент нужно обернуть компонент, для которого нужна авторизация
 function PrivateRoute({ children }) {
@@ -88,6 +89,10 @@ const router = createBrowserRouter([
             <CreateEditPost />
           </PrivateRoute>
         )
+      },
+      {
+        path: '/about',
+        element: <About />
       },
     ]
   },
