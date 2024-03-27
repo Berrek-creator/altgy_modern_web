@@ -28,7 +28,7 @@ function Header() {
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     </h1>
                 </section>
-                <div>
+                <div className="c-btn-group">
                     <ChangeThemeBtn></ChangeThemeBtn>
                     <LogInOutBtn></LogInOutBtn>
                 </div>

@@ -12,6 +12,8 @@ import { useSelector } from 'react-redux';
 import { useEffect, useState } from "react"
 import GoBackBtn from '../../components/GoBackBtn';
 
+import { FaTrash } from 'react-icons/fa';
+
 function CreateEditPost() {
     const location = useLocation()
     const navigate = useNavigate()
@@ -132,7 +134,7 @@ function CreateEditPost() {
                     <div className='form-controls'>
                         <button type="submit">{id ? "Сохранить" : "Отправить"}</button>
                         <button type="reset">Очистить</button>
-                        {id ? <button type="button" className='c-danger' disabled={id ? false : true} onClick={delete_draft} >Удалить</button> : ''}
+                        {id ? <button type="button" className='c-danger' disabled={id ? false : true} onClick={delete_draft} ><FaTrash></FaTrash></button> : ''}
                     </div>
                 </Form>
             </Formik>

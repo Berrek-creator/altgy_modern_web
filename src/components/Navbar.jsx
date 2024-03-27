@@ -2,10 +2,12 @@ import { Link } from "react-router-dom";
 import FancyButton from "../routes/lab2/FancyButton";
 
 import { ThemeContext } from "../ThemeContext";
-import { useState, useContext } from "react";
+import { useContext } from "react";
+
+import { FaArrowRight, FaArrowLeft } from "react-icons/fa"
 
 function Navbar() {
-    const [showSidebar, toggleSidebar] = useContext(ThemeContext).sidebar
+    const [is_open, toggleSidebar] = useContext(ThemeContext).sidebar
 
     return(
         <nav>
@@ -14,7 +16,9 @@ function Navbar() {
                 <Link className="nav-item" to={"/about"}>Об авторе</Link>
             </div>
             <div className="nav-right">
-                <FancyButton className="fbtn" onClick={toggleSidebar}></FancyButton>
+                <FancyButton className="fbtn fbtn-success" onClick={toggleSidebar}>
+                    {is_open ? <FaArrowRight></FaArrowRight> : <FaArrowLeft></FaArrowLeft>}
+                </FancyButton>
             </div>
         </nav>
     )

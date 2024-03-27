@@ -8,6 +8,13 @@ import GoBackBtn from './GoBackBtn';
 
 import { changeNewsPerPage, changeNewsPage} from '../Redux/Lab4/Lab4Action';
 
+import { 
+    FaSyncAlt,
+    FaChevronCircleRight,
+    FaChevronCircleLeft
+
+} from 'react-icons/fa';
+
 function PageInator(props) {
     // сколько постов показывать на странице
     const perPage = useSelector(state => state.newsPerPage.newsPerPage)
@@ -49,7 +56,7 @@ function PageInator(props) {
                     <input type="number" id='records_per_page_input' onChange={(e) => { dispatch(changeNewsPerPage(e.target.value)); dispatch(changeNewsPage(1)); dispatch({type: "LOADED_PAGES_CLEAR"}) }}  min="1" max="10" value={perPage}></input>
                 </div>
                 <div>
-                    <FancyButton className="fbtn fbtn-success fb" onClick={() => {dispatch(changeNewsPage(1)); dispatch({type: "LOADED_PAGES_CLEAR"})}}>Обновить!</FancyButton>
+                    <FancyButton className="fbtn fbtn-success fb" onClick={() => {dispatch(changeNewsPage(1)); dispatch({type: "LOADED_PAGES_CLEAR"})}}><FaSyncAlt></FaSyncAlt></FancyButton>
                 </div>
             </div>
 
@@ -57,11 +64,11 @@ function PageInator(props) {
             
             <div className='pagination-container'>
                 <FancyButton className='fbtn' onClick={() => dispatch(changeNewsPage(1))}>1</FancyButton>
-                <FancyButton className='fbtn' disabled={page <= 1 ? true : false} onClick={() => dispatch({type : "PREV_PAGE"})}>предыдущая</FancyButton>
+                <FancyButton className='fbtn' disabled={page <= 1 ? true : false} onClick={() => dispatch({type : "PREV_PAGE"})}><FaChevronCircleLeft ></FaChevronCircleLeft></FancyButton>
 
-                <p>Страница <input type="number" value={page} min="1" max={totalPages} onChange={changePage} /> из {totalPages}</p>
+                <p><input type="number" value={page} min="1" max={totalPages} onChange={changePage} /> из {totalPages}</p>
                 
-                <FancyButton className='fbtn' disabled={page >= totalPages ? true : false} onClick={() => dispatch({type : "NEXT_PAGE"})}>следующая</FancyButton>
+                <FancyButton className='fbtn' disabled={page >= totalPages ? true : false} onClick={() => dispatch({type : "NEXT_PAGE"})}><FaChevronCircleRight></FaChevronCircleRight></FancyButton>
                 <FancyButton className='fbtn' onClick={() => dispatch(changeNewsPage(totalPages))}>{totalPages}</FancyButton>
             </div>
         </div>

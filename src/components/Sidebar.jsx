@@ -2,11 +2,7 @@ import { useLocation } from "react-router-dom";
 import SidebarItem from "./SidebarItem";
 import { useState, useContext } from 'react';
 
-import FancyButton from "../routes/lab2/FancyButton";
-
 import { ThemeContext } from "../ThemeContext";
-
-import { FaWindowClose } from "react-icons/fa";
 
 function Sidebar() {
 

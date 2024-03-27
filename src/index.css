@@ -280,6 +280,11 @@ figure {
   margin-left: auto;
 }
 
+.c-btn-group {
+  display: flex;
+  align-items: start;
+}
+
 .left-right-panel {
   display: flex;
   justify-content: space-between;
@@ -296,6 +301,17 @@ figure {
       width: 100% !important;
       margin: auto;
       text-align: left !important;
+  }
+
+  #title-wrap {
+    display: none;
+  }
+  #logo-wrap {
+    width: 50%;
+  }
+  .c-btn-group {
+    width: 100%;
+    justify-content: end;
   }
 }
 
@@ -398,7 +414,7 @@ figure {
   height: 20px;
 }
 
-.c-danger:enabled {
+.c-danger:enabled, .c-danger:enabled * {
   background-color: darkred;
   color: white;
 }

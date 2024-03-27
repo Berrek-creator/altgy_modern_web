@@ -25,7 +25,10 @@ import {
 
 import './index.css'
 import { useEffect } from 'react'
+
+import Home from './pages/home.jsx'
 import About from './pages/about.jsx'
+
 
 // В данный компонент нужно обернуть компонент, для которого нужна авторизация
 function PrivateRoute({ children }) {
@@ -53,6 +56,14 @@ const router = createBrowserRouter([
     element: <Root />,
     errorElement: <ErrorPage />,
     children: [
+      {
+        path: '',
+        element: <Home></Home>
+      },
+      {
+        path: '/about',
+        element: <About />
+      },
       {
         path: '/login',
         element: <Auth />
@@ -89,10 +100,6 @@ const router = createBrowserRouter([
             <CreateEditPost />
           </PrivateRoute>
         )
-      },
-      {
-        path: '/about',
-        element: <About />
       },
     ]
   },

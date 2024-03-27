@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 
 import PropTypes from 'prop-types';
 
+import { FaEdit } from 'react-icons/fa';
+
 function DraftCard(props) {
 
     return (
@@ -17,7 +19,7 @@ function DraftCard(props) {
             </Link>
             <hr></hr>
             <div className='btn-container'>
-                <Link className='c-btn' to={'./create/' + props.id} state= {{data : props}} >Редактировать</Link>
+                <Link className='c-btn' to={'./create/' + props.id} state= {{data : props}} ><FaEdit></FaEdit></Link>
             </div>
         </div>
     )

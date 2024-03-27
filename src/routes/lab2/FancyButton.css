@@ -4,6 +4,9 @@ button.fbtn:hover:not(:disabled) {
 }
 
 button.fbtn {
+    display: inline-flex;
+    align-items: center;
+    
     background-color: lightgray;
     color: black;
     padding: 10px;

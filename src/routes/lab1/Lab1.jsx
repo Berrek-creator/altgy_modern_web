@@ -58,11 +58,12 @@ function Lab1() {
         <div>
             <h1>Лабораторная работа №1</h1>
             <h2>Якимов Борис Борисович</h2>
-            
             <p>Значение счетчика: <span id="couter">{count}</span></p>
-            
-            <FancyButton className='fbtn fbtn-success' onClick={increase_counter}>+1</FancyButton>
-            <FancyButton className='fbtn fbtn-danger' onClick={decrease_counter}>-1</FancyButton>
+            <div>
+              
+              <FancyButton className='fbtn fbtn-success' onClick={increase_counter}>+1</FancyButton>
+              <FancyButton className='fbtn fbtn-danger' onClick={decrease_counter}>-1</FancyButton>
+            </div>
             
             <hr></hr>
             <form id="login_form" className='c-form' onSubmit={form_submit}>
