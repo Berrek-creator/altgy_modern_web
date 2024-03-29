@@ -20,7 +20,7 @@ export const TextArea = ({label, ...props}) => {
     // https://formik.org/docs/api/useField
     const [field, meta] = useField(props);
     return (
-        <div className='text-area'>
+        <div className='text-area c-form-item'>
             <label htmlFor={props.id || props.name}>{label}</label>
             <textarea className="text-area" {...field} {...props} />
             {meta.touched && meta.error ? (
@@ -35,7 +35,7 @@ export const TextArea = ({label, ...props}) => {
 export const InputField = ({label, ...props}) => {
     const [field, meta] = useField(props);
     return (
-        <div>
+        <div className='c-form-item'>
             <label htmlFor={props.id || props.name}>{label}</label>
             <input type={props.type} {...field} {...props}/>
                 {meta.touched && meta.error ? (
@@ -51,7 +51,7 @@ export const InputField = ({label, ...props}) => {
 export const PhoneField = ({label, ...props}) => {
     const [field, meta] = useField(props)
     return (
-        <div>
+        <div className='c-form-item'>
             <label htmlFor={props.id || props.name}>{label}</label>
             <PhoneInput specialLabel="" disableDropdown={true}
             onChange={props.onChange}

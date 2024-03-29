@@ -16,9 +16,11 @@ function Navbar() {
                 <Link className="nav-item" to={"/about"}>Об авторе</Link>
             </div>
             <div className="nav-right">
-                <FancyButton className="fbtn fbtn-success" onClick={toggleSidebar}>
-                    {is_open ? <FaArrowRight></FaArrowRight> : <FaArrowLeft></FaArrowLeft>}
-                </FancyButton>
+                {!is_open ? 
+                    <FancyButton className="fbtn fbtn-success" onClick={toggleSidebar}>
+                        {is_open ? <FaArrowRight></FaArrowRight> : <FaArrowLeft></FaArrowLeft>}
+                    </FancyButton>
+                : _ }     
             </div>
         </nav>
     )

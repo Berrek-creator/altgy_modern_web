@@ -33,21 +33,17 @@ import About from './pages/about.jsx'
 // В данный компонент нужно обернуть компонент, для которого нужна авторизация
 function PrivateRoute({ children }) {
     let navigate = useNavigate()
-    let bearerToken = useSelector(store => store.auth.bearerToken)
+    let is_auth = useSelector(store => store.auth.is_auth)
 
     useEffect(() => {
-      // если не авторизированы, значит отправляем на login страницу
-      is_bearer_valid(bearerToken).then((is_valid) => {
-        console.log("Auth?:", is_valid)
-        if (!is_valid) {
-          navigate('/login');
-        }
-      })
-    }, [bearerToken])
+      console.log("Auth route?:", is_auth)
+      if (!is_auth) {
+        navigate('/login');
+      }
+    }, [is_auth])
 
     // иначе, выполнение дойдет досюда и будет возвращен компонент
     return children
-  
 }
 
 const router = createBrowserRouter([

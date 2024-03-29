@@ -42,7 +42,6 @@ function CreateEditPost() {
         }
     }, [id, deleted, bearerToken, location])
 
-
     // создать черновик. Также отвечает за его редактирвоание
     function create_draft(values, helpers) {
         

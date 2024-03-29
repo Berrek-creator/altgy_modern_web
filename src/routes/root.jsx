@@ -10,7 +10,7 @@ import { useState, useEffect } from 'react'
 export default function Root() {
 
     const [theme, setTheme] = useState("light")
-    const [showSidebar, setShowSidebar] = useState(true)
+    const [showSidebar, setShowSidebar] = useState(false)
   
     function toggleTheme() {
       theme == 'light' ? setTheme("dark") : setTheme('light')  

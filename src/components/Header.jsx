@@ -1,7 +1,5 @@
 import "./Header.css"
 
-import Navbar from "./Navbar"
-
 import logo from './../assets/logo.svg'
 import header_image from './../assets/branding.jpg'
 
@@ -14,9 +12,7 @@ import LogInOutBtn from "./LogInOutBtn"
 
 function Header() {
     return(
-    <>
-        <header>
-        <div id="branding">
+        <header id="branding">
             <div id="branding-content">
                 <div id="logo-wrap">
                     <Link to='/'>
@@ -34,11 +30,7 @@ function Header() {
                 </div>
             </div>
             <img className="c-fluid-img" width="1200" height="552" src={header_image} alt="branding" />
-        </div>
-
-        <Navbar/>
         </header>
-    </>
     )
 }
 

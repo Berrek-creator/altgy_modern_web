@@ -15,10 +15,14 @@ html {
   /* фон черепаха с высоким уровнем прозрачности, расположенный в правой части и идущий сверху вниз */
   /* background: repeat-y right url('./assets/turtle-alpha-big.png'); */
   background-color: var(--main-bg-2);
+
+  /* включить ширину скролл бара в ширину страницы */
+  scrollbar-gutter: stable;
 }
 
 body {
   background-color: rgba(255,255,255,0.85);
+  
 }
 
 h3 {
@@ -76,7 +80,6 @@ body {
 }
 
 header {
-  background-color: pink;
   border-radius: 0 0 10px 10px;
 }
 
@@ -149,11 +152,6 @@ header {
   align-items: center;
 }
 
-nav {
-  display: flex;
-  align-items: center;
-}
-
 .n-collapsed {
   margin-right: auto;
   transition: margin-right 1s;
@@ -162,6 +160,13 @@ nav {
 .collapsed {
   margin-right: -400px !important;
   transition: margin-right 1s;
+}
+
+.nav-link {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  font-size: 1.3em;
 }
 
 nav .nav-right {
@@ -306,12 +311,19 @@ figure {
   #title-wrap {
     display: none;
   }
+
   #logo-wrap {
     width: 50%;
   }
+
   .c-btn-group {
     width: 100%;
     justify-content: end;
+  }
+
+  .c-form-item * {
+    width: 100%;
+    text-align: left !important;
   }
 }
 
@@ -464,4 +476,16 @@ figure {
 
 .dark #branding-content, .dark #branding-content * {
   background-color: rgba(255,255,255,0) !important;
+}
+
+/* костыли */
+
+.flag-dropdown {
+  display: none !important;
+}
+
+/* всякое */
+
+.p10 {
+  padding: 10px;
 }

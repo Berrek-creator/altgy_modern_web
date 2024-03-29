@@ -14,7 +14,9 @@ import { is_bearer_valid } from './auth_tools';
 
 // для перенаправления
 import { useNavigate } from "react-router-dom";
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+
+import { Dialog } from '@mui/material';
 
 export function Auth() {
 
@@ -24,9 +26,9 @@ export function Auth() {
     // redux отсылатель событий
     const dispatch = useDispatch()
 
-    const bearerToken = useSelector(state => state.auth.bearerToken)
+    const is_auth = useSelector(state => state.auth.is_auth)
 
-    console.log(bearerToken)
+    const [isDialogOpen, setDialogOpen] = useState(true)
 
     // схема авторизации
     const AuthSchema = Yup.object().shape({
@@ -36,12 +38,10 @@ export function Auth() {
 
     useEffect(() => {
         // если мы в auth и уже авторизированны, то redirect на главную
-        is_bearer_valid(bearerToken).then((is_valid) => {
-            if (is_valid){
-                navigate('/')
-            }
-        })
-    }, [bearerToken])
+        if (is_auth){
+            navigate('/')
+        }
+    }, [is_auth, isDialogOpen])
     
     function authenticate(values, helpers) {
 
@@ -72,49 +72,53 @@ export function Auth() {
                 dispatch(setBearerToken(data.token))
                 alert("Добро пожаловать: " + data.user_display_name)
                 helpers.resetForm()
-
                 navigate('/')
             }
         })
     }
 
+    function handleAuthCancel() {
+        navigate('/')
+    }
+
     return (
-        <div>
-        <h1>Войдите в учетную запись</h1>
-        <Formik
-            initialValues={{
-                username: '',
-                password: '',
-            }}
-            onSubmit={authenticate}
+        <Dialog open={isDialogOpen}>
+            <div className='p10'>
+                <h1>Войдите в учетную запись</h1>
+                <Formik
+                    initialValues={{
+                        username: '',
+                        password: '',
+                    }}
+                    onSubmit={authenticate}
 
-            validationSchema={AuthSchema}
-            >
-            <Form className='c-form'>
-                <InputField
-                    label="Логин"
-                    id="username"
-                    placeholder="Имя пользователя"
-                    name="username"
-                    type="text"
-                />
+                    validationSchema={AuthSchema}
+                    >
+                    <Form className='c-form'>
+                        <InputField
+                            label="Логин"
+                            id="username"
+                            placeholder="Имя пользователя"
+                            name="username"
+                            type="text"
+                        />
 
-                <InputField
-                    label="Пароль"
-                    id="password"
-                    placeholder="Пароль"
-                    name="password"
-                    type="password"
-                />
-                
+                        <InputField
+                            label="Пароль"
+                            id="password"
+                            placeholder="Пароль"
+                            name="password"
+                            type="password"
+                        />
 
-                <div className='form-controls'>
-                    <button type="submit">Отправить</button>
-                    <button type="reset">Очистить</button>
-                </div>
-            </Form>
-        </Formik>
-        </div>
+                        <div className='form-controls'>
+                            <button type="submit">Отправить</button>
+                            <button type="button" onClick={handleAuthCancel}>Отмена</button>
+                        </div>
+                    </Form>
+                </Formik>
+            </div>
+        </Dialog>
     )   
 }
 
