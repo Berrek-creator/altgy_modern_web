@@ -14,6 +14,8 @@ import GoBackBtn from '../../components/GoBackBtn';
 
 import { FaTrash } from 'react-icons/fa';
 
+import { draft_fetch } from '../../tools';
+
 function CreateEditPost() {
     const location = useLocation()
     const navigate = useNavigate()
@@ -30,9 +32,6 @@ function CreateEditPost() {
 
     const [id, setId] = useState(location.state?.data?.id)
 
-
-    const [method, setMethod] = useState('POST')
-
     // чтобы useEffect заставить шевелиться после удаления записи
     const [deleted, setDeleted] = useState(false)
 
@@ -42,30 +41,12 @@ function CreateEditPost() {
         }
     }, [id, deleted, bearerToken, location])
 
-    // создать черновик. Также отвечает за его редактирвоание
     function create_draft(values, helpers) {
         
-        let path = "https://xn--80afw1b6b.xn--p1ai/wp-json/wp/v2/posts/"
-
-        // если 
-        if (id) {
-            path += id
-            setMethod("PUT")
-        }
         let data = JSON.stringify(values);
-        console.log(data, path)
 
-        fetch(path, {
-            method: method,
-            mode: "cors",
-            headers: {
-                "Content-type" : "application/json",
-                "Authorization" : 'Bearer ' + bearerToken
-            },
-            body: data
-        }).then((response) => {
-            return response.json()
-        }).then((data) => {
+        draft_fetch("POST", data, id, bearerToken)  
+        .then((data) => {
             console.log(data)
             if (data.id) {
                 alert("Черновик сохранен")
@@ -79,18 +60,8 @@ function CreateEditPost() {
             return false
         }
 
-        let path = "https://xn--80afw1b6b.xn--p1ai/wp-json/wp/v2/posts/" + id
-
-        fetch(path, {
-            method: "DELETE",
-            mode: "cors",
-            headers: {
-                "Content-type" : "application/json",
-                "Authorization" : 'Bearer ' + bearerToken
-            }
-        }).then((response) => {
-            return response.json()
-        }).then((data) => {
+        draft_fetch("DELETE", {}, id, bearerToken)
+        .then((data) => {
             console.log(data)
             if (data.id) {
                 alert("Черновик удален")

@@ -34,3 +34,39 @@ export function c_unescape(str) {
     //console.log(newStr)
     return newStr;
 }
+
+export function draft_fetch(method, data = "", id = "", bearerToken = "") {    
+    // исходный путь к постам
+    let path = "https://xn--80afw1b6b.xn--p1ai/wp-json/wp/v2/posts/"
+
+    
+    // загловки
+    let headers = {
+        "Content-type" : "application/json",
+        "Authorization" : 'Bearer ' + bearerToken
+    }
+
+    let request_body = {
+        method: method,
+        mode: "cors",
+        headers: headers,
+    }
+
+    if (method === "POST") {
+        request_body.body = data
+    }
+
+    // Для запросов этого рода нужен id поста
+    if (["POST", "DELETE"].includes(method)) {
+        path += id
+    }
+
+    // если id и не DELETE, то это PUT (то есть обновление)
+    if (id && method !== "DELETE") {
+        method = "PUT"
+    }
+
+    return fetch(path, request_body).then((response) => {
+        return response.json()
+    })
+}
