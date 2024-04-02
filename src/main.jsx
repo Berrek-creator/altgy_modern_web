@@ -14,9 +14,9 @@ import PostDrafts from './routes/lab6/PostDrafts.jsx'
 import CreateEditPost from './routes/lab6/CreateEditDraft.jsx'
 
 
-import { Navigate, useNavigate } from 'react-router-dom'
-import { is_bearer_valid } from './components/auth_tools.jsx'
+import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux';
+
 
 import {
   createBrowserRouter,
@@ -28,6 +28,8 @@ import { useEffect } from 'react'
 
 import Home from './pages/home.jsx'
 import About from './pages/about.jsx'
+
+import Header from './components/Header.jsx'
 
 
 // В данный компонент нужно обернуть компонент, для которого нужна авторизация
@@ -59,6 +61,10 @@ const router = createBrowserRouter([
       {
         path: '/about',
         element: <About />
+      },
+      {
+        path: '/motilda',
+        element: <Header />
       },
       {
         path: '/login',

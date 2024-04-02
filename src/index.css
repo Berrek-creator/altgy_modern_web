@@ -17,12 +17,11 @@ html {
   background-color: var(--main-bg-2);
 
   /* включить ширину скролл бара в ширину страницы */
-  scrollbar-gutter: stable;
+  /*scrollbar-gutter: stable;*/
 }
 
 body {
   background-color: rgba(255,255,255,0.85);
-  
 }
 
 h3 {
@@ -220,6 +219,12 @@ nav a:hover {
 
 #sidebar-right section {
   width: 100%;
+}
+
+#sidebar-menu {
+  display: flex;
+  justify-content: end;
+  padding: 10px;
 }
 
 footer {

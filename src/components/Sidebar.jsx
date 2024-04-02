@@ -9,6 +9,9 @@ import { Drawer } from '@mui/material'
 import FancyButton from "../routes/lab2/FancyButton";
 import { FaArrowRight } from "react-icons/fa";
 
+import ChangeThemeBtn from '../routes/lab4/ChangeThemeBtn';
+import LogInOutBtn from './LogInOutBtn';
+
 function Sidebar() {
 
     // названия лабораторных работ в хронологическом порядке
@@ -41,6 +44,12 @@ function Sidebar() {
         <Drawer open={is_open ? true : false} onClose={toggleSidebar} anchor='right' disableScrollLock={true}>
             <aside id="sidebar-right">
                 <section id="last-news" >
+                    <div id="sidebar-menu">
+                        
+                        <ChangeThemeBtn></ChangeThemeBtn>
+                        <LogInOutBtn></LogInOutBtn>
+                    </div>
+                    <hr></hr>
                     <h3>Лабораторные работы 
                         <FancyButton className="fbtn fbtn-success ma" onClick={toggleSidebar}>
                             <FaArrowRight></FaArrowRight>

@@ -1,7 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import './App.css'
 
-import Header_component from './components/Header.jsx'
 import MUI_Navbar from './components/MUI_Navbar.jsx'
 
 import Footer_component from './components/Footer.jsx'
@@ -30,7 +29,8 @@ function App() {
 
   return (
       <>
-        <Header_component></Header_component>  
+
+        
         <MUI_Navbar></MUI_Navbar>
 
         <div id='main-wrap'>

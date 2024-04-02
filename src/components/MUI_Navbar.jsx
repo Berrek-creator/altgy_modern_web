@@ -18,7 +18,6 @@ import { FaArrowRight, FaArrowLeft } from "react-icons/fa"
 
 import { Link } from 'react-router-dom';
 
-
 function MUI_Navbar() {
   const [is_open, toggleSidebar] = useContext(ThemeContext).sidebar
   
@@ -73,6 +72,10 @@ function MUI_Navbar() {
                 <MenuItem key={'about'} onClick={handleCloseNavMenu}>
                   <Link className="nav-link" to={"/about"}>Об авторе</Link>
                 </MenuItem>
+
+                <MenuItem key={'motilda'} onClick={handleCloseNavMenu}>
+                  <Link className="nav-link" to={"/motilda"}>МОТИЛЬДА!</Link>
+                </MenuItem>
                 
               </Menu>
             </Box>
@@ -80,10 +83,11 @@ function MUI_Navbar() {
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                 <Link className="nav-link" to={"/"}>Главная</Link>
                 <Link className="nav-link" to={"/about"}>Об авторе</Link>
+                <Link className="nav-link" to={"/motilda"}>МОТИЛЬДА!</Link>
             </Box>
 
             <Box>
-              
+
               {!is_open ? 
                   <FancyButton className="fbtn fbtn-success" onClick={toggleSidebar}>
                       {is_open ? <FaArrowRight></FaArrowRight> : <FaArrowLeft></FaArrowLeft>}
