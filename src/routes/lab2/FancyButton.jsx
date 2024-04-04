@@ -22,7 +22,7 @@ FancyButton.propTypes = {
     onClick: PropTypes.func,
     onMouseOver: PropTypes.func,
     className: PropTypes.string,
-    id: PropTypes.number,
+    id: PropTypes.string,
     value: PropTypes.string,
     type: PropTypes.string,
     disabled: PropTypes.bool,

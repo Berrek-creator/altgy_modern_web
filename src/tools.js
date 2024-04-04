@@ -52,6 +52,7 @@ export function draft_fetch(method, data = "", id = "", bearerToken = "") {
         headers: headers,
     }
 
+    // если это POST, то нужны данные о записе
     if (method === "POST") {
         request_body.body = data
     }
@@ -61,10 +62,12 @@ export function draft_fetch(method, data = "", id = "", bearerToken = "") {
         path += id
     }
 
-    // если id и не DELETE, то это PUT (то есть обновление)
-    if (id && method !== "DELETE") {
+    // если id и не DELETE или GET, то это PUT (то есть обновление)
+    if (id && !method.includes("DELETE", "GET") ) {
         method = "PUT"
     }
+
+    console.log("Method:", method)
 
     return fetch(path, request_body).then((response) => {
         return response.json()

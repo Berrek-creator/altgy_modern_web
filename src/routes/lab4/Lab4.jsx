@@ -62,7 +62,6 @@ function Lab4() {
                 alert(error)
             })
         }
-        
     }, [page, perPage, dispatch, loadedPages])
     
     // раньше onChange у input был : (e) => {setPerPage(e.target.value), setPage(1)}

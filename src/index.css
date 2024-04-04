@@ -363,6 +363,12 @@ figure {
   justify-content: end;
 }
 
+.btn-container-around {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
 .c-btn {
   background-color: lightgray;
   color: black;
@@ -493,4 +499,13 @@ figure {
 
 .p10 {
   padding: 10px;
+}
+
+.w100 {
+  width: 100%;
+  text-align: center;
+}
+
+.virtual-limit {
+  height: 400px;
 }

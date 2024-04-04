@@ -21,7 +21,9 @@ function Sidebar() {
         "шапка, панель, подвал, main",
         "Маршруты, useState/Effect, Redux",
         "Formik",
-        "REST CRUD"
+        "REST CRUD",
+        "MUI, О себе, адаптив",
+        "react-table (MUI DataGrid)"
     ]
 
     const [is_open, toggleSidebar] = useContext(ThemeContext).sidebar
