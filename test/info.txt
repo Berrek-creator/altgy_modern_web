@@ -1,0 +1,10 @@
+для тестов использован vitest
+https://eternaldev.com/blog/testing-a-react-application-with-vitest
+
+устанавливается с помощью: 
+
+npm install -D vitest
+
+В vite.config.js нужны некоторые изменения (см. туториал выше)
+
+для запуска тестов: npx vitest

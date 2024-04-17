@@ -23,7 +23,8 @@ function Sidebar() {
         "Formik",
         "REST CRUD",
         "MUI, О себе, адаптив",
-        "react-table (MUI DataGrid)"
+        "react-table (MUI DataGrid)",
+        "RTK Query, Спиннер загрузки, Ленивые импорты"
     ]
 
     const [is_open, toggleSidebar] = useContext(ThemeContext).sidebar
