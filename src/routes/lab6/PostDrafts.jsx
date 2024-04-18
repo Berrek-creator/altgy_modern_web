@@ -14,46 +14,56 @@ import { setNewsTotalPages } from '../../Redux/Lab4/Lab4Action';
 
 import PageInator from '../../components/PageInator';
 
-// import { useGetPagedDraftsQuery } from '../../Redux/services/gymnews';
+import { useGetPagedDraftsQuery } from '../../Redux/services/gymnews';
 
 import { wp_drafts_api } from '../../Redux/services/gymnews';
 
 function Lab4() {
-    
+
     // сколько постов показывать на странице
     const perPage = useSelector(state => state.newsPerPage.newsPerPage)
     // какую страницу просматриваем
     const page = useSelector(state => state.newsPage.newsPage)
 
-    // const { data, error, isLoading } = useGetPagedDraftsQuery(perPage, page)
-
-    // есть более нормальный способ передать параметры?
-    const { data, error, isLoading } = wp_drafts_api.endpoints.getDrafts.useQuery(
+    const { data, error, isLoading } = useGetPagedDraftsQuery(
         {
             perPage: perPage,
             page: page
         },
         {
             pollingInterval: 30000, keepUnusedDataFor: 120
-        })
+        }
+    )
+
+
+    // Вызов endpointa напрямую
+
+    //const { data, error, isLoading } = wp_drafts_api.endpoints.getDrafts.useQuery(
+    //    {
+    //        perPage: perPage,
+    //        page: page
+    //    },
+    //    {
+    //        pollingInterval: 30000, keepUnusedDataFor: 120
+    //    })
 
     console.log(data, error, isLoading)
-    
+
     // уже загруженные страницы
     // const loadedPages = useSelector(state => state.newsLoader.pages)
 
     // redux отсылатель событий
     const dispatch = useDispatch()
-    
-    // текущие perPage новостей, взятые из store или загруженные из REST
-    const [news, setNews] = useState([])
 
-    const bearerToken = useSelector(store => store.auth.bearerToken)
-    const is_auth = useSelector(store => store.auth.is_auth)
+    // текущие perPage новостей, взятые из store или загруженные из REST
+    // const [news, setNews] = useState([])
+
+    // const bearerToken = useSelector(store => store.auth.bearerToken)
+    // const is_auth = useSelector(store => store.auth.is_auth)
 
     if (isLoading) {
         return (
-            <Loader></Loader>
+            <Loader />
         )
     }
     if (error) {
@@ -73,11 +83,11 @@ function Lab4() {
 
         return (
             <PageInator>
-                
+
                 {data.data.length ? data.data.map(item => (
                     <DraftCard to="" title={item.title.rendered} date={item.date} key={item.id} id={item.id} content={item.content.rendered}>HAHA</DraftCard>
                 )) : <p>Новостей нет</p>}
-    
+
             </PageInator>
         )
     }

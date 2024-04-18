@@ -16,7 +16,7 @@ const store = configureStore({
         [wp_drafts_api.reducerPath]: wp_drafts_api.reducer,
     },
 
-        // Adding the api middleware enables caching, invalidation, polling,
+    // Adding the api middleware enables caching, invalidation, polling,
     // and other useful features of `rtk-query`.
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware().concat(wp_drafts_api.middleware),

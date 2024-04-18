@@ -8,7 +8,7 @@ function Loader() {
     return (
         <div className="loader-container">
             
-            <img class = "loader" src={turtle_loader}></img>
+            <img className = "loader" src={turtle_loader}></img>
             
         </div>
     )

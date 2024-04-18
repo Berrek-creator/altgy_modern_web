@@ -73,3 +73,10 @@ export function draft_fetch(method, data = "", id = "", bearerToken = "") {
         return response.json()
     })
 }
+
+export function serialize_obj_to_url_args(obj) {
+    var str = [];
+    for(var p in obj)
+       str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+    return str.join("&");
+  }
